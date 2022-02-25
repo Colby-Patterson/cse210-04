@@ -6,7 +6,7 @@ class Artifact(Actor):
         selecting starting positons."""
 
     def __init__(self):
-        super.__init__()
+        super().__init__()
         self._value = 0
 
     def get_value(self):

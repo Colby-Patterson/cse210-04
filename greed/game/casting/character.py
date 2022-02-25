@@ -4,7 +4,7 @@ class Character(Actor):
     """tracks the characters score."""
 
     def __init__(self):
-        super.__init__()
+        super().__init__()
         self._score = 0
 
     def get_score(self):
