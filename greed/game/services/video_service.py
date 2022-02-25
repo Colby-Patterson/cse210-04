@@ -1,5 +1,5 @@
 import pyray
-import random
+
 class VideoService:
 
     def __init__(self, caption, width, height, cell_size, frame_rate, debug = False):
