@@ -52,7 +52,7 @@ class VideoService:
     
     def is_window_open(self):
 
-        return not pyray.window_should_close
+        return not pyray.window_should_close()
 
    
     def open_window(self):
