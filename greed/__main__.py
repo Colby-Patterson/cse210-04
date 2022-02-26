@@ -23,6 +23,7 @@ COLS = 60
 ROWS = 40
 CAPTION = "Greed"
 WHITE = Color(255, 255, 255)
+DEFAULT_ARTIFACTS = 20
 
 def main():
     """satisfy python"""
@@ -31,7 +32,7 @@ def main():
 
     #create player character
     x = int(MAX_X / 2)
-    y = 0
+    y = MAX_Y
     start_position = Point(x, y)
 
     robot = Actor()
@@ -49,8 +50,12 @@ def main():
     banner.set_size(FONT_SIZE)
     banner.set_color(WHITE)
     banner.set_position(Point(CELL_SIZE, 0))
-    
+
     cast.add_actor('banners', banner)
+
+    #for n in range(DEFAULT_ARTIFACTS):
+
+
 
     #start the game
     keyboard_service = KeyboardService(CELL_SIZE)
