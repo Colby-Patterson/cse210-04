@@ -33,7 +33,6 @@ class Director:
         robot = cast.get_first_actor('robots')
         artifacts = cast.get_actors('artifacts')
 
-        banner.set_text('')
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.change_position(max_x, max_y)
@@ -58,6 +57,7 @@ class Director:
                 value = artifact.get_value()
                 score = robot.get_score()
                 new_score = score + value
+                robot.set_score(new_score)
                 banner.set_text(f"Score: {new_score}")
             
             artifact.change_position(max_x, max_y)
