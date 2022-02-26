@@ -34,14 +34,14 @@ def main():
     y = 0
     start_position = Point(x, y)
 
-    character = Character()
-    character.set_text('#')
-    character.set_size(FONT_SIZE)
-    character.set_axis(1)
-    character.set_position(start_position)
-    character.set_color(WHITE)
+    robot = Actor()
+    robot.set_text('#')
+    robot.set_size(FONT_SIZE)
+    robot.set_axis(1)
+    robot.set_position(start_position)
+    robot.set_color(WHITE)
 
-    cast.add_actor('character', character)
+    cast.add_actor('robots', robot)
 
     #create banner
     banner = Actor()
@@ -49,6 +49,8 @@ def main():
     banner.set_size(FONT_SIZE)
     banner.set_color(WHITE)
     banner.set_position(Point(CELL_SIZE, 0))
+    
+    cast.add_actor('banners', banner)
 
     #start the game
     keyboard_service = KeyboardService(CELL_SIZE)

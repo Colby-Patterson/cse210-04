@@ -25,14 +25,25 @@ class VideoService:
             self._draw_grid()
 
     
-    def draw_actor(self):
+    def draw_actor(self, actor):
 
-        pass
+        text = actor.get_text()
+        x = actor.get_position().get_x()
+        y = actor.get_position().get_y()
+        font_size = actor.get_size()
+        color = actor.get_color().to_tuple()
+        pyray.draw_text(text, x, y, font_size, color)
+
+    
+    def draw_actors(self, actors):
+
+        for actor in actors:
+            self.draw_actor(actor)
 
     
     def flush_buffer(self):
 
-        pyray.end_drawing
+        pyray.end_drawing()
 
     
     def get_cell_size(self):
@@ -52,7 +63,7 @@ class VideoService:
     
     def is_window_open(self):
 
-        return not pyray.window_should_close
+        return not pyray.window_should_close()
 
    
     def open_window(self):
