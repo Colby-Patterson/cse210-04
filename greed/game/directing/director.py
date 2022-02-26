@@ -2,6 +2,7 @@ from hashlib import new
 import random
 from game.casting.artifact import Artifact
 from game.shared.point import Point
+from game.shared.color import Color
 
 class Director:
     """satisfy python"""
@@ -40,10 +41,15 @@ class Director:
         value = random.randint(0,1)
         x = random.randint(0, 60) * 15
         y = 15
+        r = random.randint(0, 255)
+        g = random.randint(0, 255)
+        b = random.randint(0, 255)
+        color = Color(r, g, b)
         new_artifact = Artifact()
         new_artifact.set_speed(Point(0, 15))
         new_artifact.set_position(Point(x, y))
         new_artifact.set_size(15)
+        new_artifact.set_color(color)
         if value == 0:
             new_artifact.set_value(-1)
             new_artifact.set_text("O")
@@ -59,6 +65,8 @@ class Director:
                 new_score = score + value
                 robot.set_score(new_score)
                 banner.set_text(f"Score: {new_score}")
+            if artifact.get_position().get_y() == max_y:
+                cast.remove_actor('artifacts', artifact)
             
             artifact.change_position(max_x, max_y)
 
