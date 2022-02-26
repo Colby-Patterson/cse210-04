@@ -2,7 +2,6 @@ import os
 import random
 
 from game.casting.actor import Actor
-from game.casting.artifact import Artifact
 from game.casting.character import Character
 from game.casting.cast import Cast
 
@@ -35,7 +34,7 @@ def main():
     y = MAX_Y
     start_position = Point(x, y)
 
-    robot = Actor()
+    robot = Character()
     robot.set_text('#')
     robot.set_size(FONT_SIZE)
     robot.set_axis(1)

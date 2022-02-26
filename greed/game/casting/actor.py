@@ -76,12 +76,3 @@ class Actor:
         """Sets the actors axis.
         axis (Int)"""
         self._axis = axis
-
-    def change_position(self, max_x, max_y):
-        """Changes the position of the actor based on the speed
-            and the actors axis."""
-        #self._position[self._axis] = self._position[self._axis] + self._speed
-        x = (self._position.get_x() + self._speed.get_x()) % max_x
-        y = (self._position.get_y() + self._speed.get_y()) % max_y
-        self._position = Point(x, y)
-

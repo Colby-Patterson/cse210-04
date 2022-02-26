@@ -1,4 +1,10 @@
+from hashlib import new
+import random
+from game.casting.artifact import Artifact
+from game.shared.point import Point
+
 class Director:
+    """satisfy python"""
 
     def __init__(self, keyboard_service, video_service):
 
@@ -31,11 +37,32 @@ class Director:
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.change_position(max_x, max_y)
+ 
+        value = random.randint(0,1)
+        x = random.randint(0, 60) * 15
+        y = 15
+        new_artifact = Artifact()
+        new_artifact.set_speed(Point(0, 15))
+        new_artifact.set_position(Point(x, y))
+        new_artifact.set_size(15)
+        if value == 0:
+            new_artifact.set_value(-1)
+            new_artifact.set_text("O")
+        elif value == 1:
+            new_artifact.set_value(1)
+            new_artifact.set_text("*")
+        cast.add_actor('artifacts', new_artifact)
 
         for artifact in artifacts:
-            if robot.get_position().equals(artifact.get_postion()):
-                message = artifact.get_value()
-                banner.set_text(message)
+            if robot.get_position().equals(artifact.get_position()):
+                value = artifact.get_value()
+                score = robot.get_score()
+                new_score = score + value
+                banner.set_text(f"Score: {new_score}")
+            
+            artifact.change_position(max_x, max_y)
+
+            
 
     def _do_outputs(self, cast):
 
